@@ -1,0 +1,33 @@
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAdmin webmaster@localhost.com
+    DocumentRoot "/var/www"
+
+    # This should be omitted in the production environment
+    SetEnv APPLICATION_ENV development
+
+    <Directory "/var/www">
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+
+        <IfModule mod_php5.c>
+            php_admin_flag display_errors on
+            # Get the right number in http://www.bx.com.au/tools/ultimate-php-error-reporting-wizard?php_version=5_3
+            php_admin_value error_reporting 24575
+            php_value max_execution_time 60
+            php_value max_input_time 120
+            php_value memory_limit 512M
+            php_value post_max_size 30M
+            php_value upload_max_filesize 30M
+        </IfModule>
+
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+</VirtualHost>
+
