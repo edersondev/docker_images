@@ -25,7 +25,7 @@
 
     </Directory>
 
-	LogLevel warn
+    LogLevel warn
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
     
