@@ -1,4 +1,4 @@
-# Baixa a imagem do ubuntu versão 12.04
+# Baixa a imagem do ubuntu
 FROM ubuntu:12.04
 
 # Instalação dos pacotes
