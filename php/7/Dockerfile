@@ -1,28 +1,36 @@
-# Baixa a imagem do ubuntu versão 12.04
-FROM ubuntu:14.04.5
+FROM ubuntu
 
-# Instalação dos pacotes
 RUN apt-get update && apt-get install -y \
 apache2 \
-php5 \
-php5-cli \
-php5-common \
-php5-gd \
-php5-json \
-php5-ldap \
-php5-mysql \
-php5-pgsql \
-php5-apcu \
-php5-imagick \
-php5-mcrypt \
-php5-sybase \
-php5-xdebug \
-mysql-client \
+php \
+php-cli \
+php-common \
+php-curl \
+php-dev \
+php-gd \
+php-ldap \
+php-mysql \
+php-odbc \
+php-pgsql \
+php-sqlite3 \
+php-bz2 \
+php-imagick \
+php-json \
+php-mbstring \
+php-mcrypt \
+php-pclzip \
+php-soap \
+php-twig \
+php-xdebug \
+php-xml \
+php-zip \
+php-apcu \
 phpunit \
+composer \
+mysql-client \
 nano \
 && apt-get clean
 
-# Habilita o modo de reescrita do apache
 RUN a2enmod rewrite
 
 ENV APACHE_LOCK_DIR="/var/lock"
@@ -31,7 +39,7 @@ ENV APACHE_RUN_USER="www-data"
 ENV APACHE_RUN_GROUP="www-data"
 ENV APACHE_LOG_DIR="/var/log/apache2"
 
-LABEL Description="Webserver php 5.5.9"
+LABEL Description="Webserver php 7"
 
 VOLUME /var/www/html
 
