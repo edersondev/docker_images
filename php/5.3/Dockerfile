@@ -33,6 +33,9 @@ LABEL Description="Webserver php 5.3"
 
 VOLUME /var/www
 
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Copia o arquivo de virtualhost
 COPY default /etc/apache2/sites-available/default
 

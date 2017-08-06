@@ -1,12 +1,12 @@
-FROM ubuntu
+FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y \
 apache2 \
+libapache2-mod-php \
 php \
 php-cli \
 php-common \
 php-curl \
-php-dev \
 php-gd \
 php-ldap \
 php-mysql \
@@ -20,7 +20,6 @@ php-mbstring \
 php-mcrypt \
 php-pclzip \
 php-soap \
-php-twig \
 php-xdebug \
 php-xml \
 php-zip \
@@ -42,6 +41,9 @@ ENV APACHE_LOG_DIR="/var/log/apache2"
 LABEL Description="Webserver php 7"
 
 VOLUME /var/www/html
+
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Copia o arquivo de virtualhost
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
