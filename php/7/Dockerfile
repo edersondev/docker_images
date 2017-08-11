@@ -51,7 +51,7 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 # Install and config Laravel
 RUN composer global require "laravel/installer"
 RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> /root/.bashrc
-RUN source ~/.bashrc
+RUN source /root/.bashrc
 
 EXPOSE 80
 
