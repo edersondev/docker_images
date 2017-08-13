@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 RUN apt-get update && apt-get install -y \
 apache2 \
@@ -49,9 +50,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Install and config Laravel
+WORKDIR /root
 RUN composer global require "laravel/installer"
-RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> /root/.bashrc
+RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
 EXPOSE 80
 
-ENTRYPOINT service apache2 start && /bin/bash
+CMD apachectl -DFOREGROUND

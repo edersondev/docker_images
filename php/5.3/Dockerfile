@@ -1,5 +1,6 @@
 # Baixa a imagem do ubuntu
 FROM ubuntu:12.04
+LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 # Instalação dos pacotes
 RUN apt-get update && apt-get install -y \ 
@@ -41,4 +42,4 @@ COPY default /etc/apache2/sites-available/default
 
 EXPOSE 80
 
-ENTRYPOINT service apache2 start && /bin/bash
+CMD apachectl -DFOREGROUND

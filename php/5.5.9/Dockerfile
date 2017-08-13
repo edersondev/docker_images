@@ -1,5 +1,6 @@
 # Baixa a imagem do ubuntu
 FROM ubuntu:14.04.5
+LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 # Instalação dos pacotes
 RUN apt-get update && apt-get install -y \
@@ -43,4 +44,4 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
 
-ENTRYPOINT service apache2 start && /bin/bash
+CMD apachectl -DFOREGROUND
