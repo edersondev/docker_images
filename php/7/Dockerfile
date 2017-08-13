@@ -29,7 +29,8 @@ phpunit \
 composer \
 mysql-client \
 nano \
-&& apt-get clean
+&& apt-get clean && apt-get autoclean && apt-get autoremove \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite
 
@@ -56,4 +57,4 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
 EXPOSE 80
 
-CMD apachectl -DFOREGROUND
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

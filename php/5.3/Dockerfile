@@ -19,7 +19,8 @@ php5-sybase \
 php5-xdebug \
 phpunit \
 nano \
-&& apt-get clean
+&& apt-get clean && apt-get autoclean && apt-get autoremove \
+&& rm -rf /var/lib/apt/lists/*
 
 # Habilita o modo de reescrita do apache
 RUN a2enmod rewrite
@@ -42,4 +43,4 @@ COPY default /etc/apache2/sites-available/default
 
 EXPOSE 80
 
-CMD apachectl -DFOREGROUND
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

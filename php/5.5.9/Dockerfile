@@ -21,7 +21,8 @@ php5-xdebug \
 mysql-client \
 phpunit \
 nano \
-&& apt-get clean
+&& apt-get clean && apt-get autoclean && apt-get autoremove \
+&& rm -rf /var/lib/apt/lists/*
 
 # Habilita o modo de reescrita do apache
 RUN a2enmod rewrite
@@ -44,4 +45,4 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
 
-CMD apachectl -DFOREGROUND
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
