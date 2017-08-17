@@ -19,6 +19,7 @@ php5-mcrypt \
 php5-sybase \
 php5-xdebug \
 mysql-client \
+composer \
 phpunit \
 nano \
 && apt-get clean && apt-get autoclean && apt-get autoremove \

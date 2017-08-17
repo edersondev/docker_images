@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu
 LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 RUN apt-get update && apt-get install -y \
