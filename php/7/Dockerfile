@@ -61,6 +61,8 @@ RUN composer self-update
 WORKDIR /root
 RUN composer global require "laravel/installer"
 RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+# Install drush
+RUN composer global require drush/drush:dev-master
 
 EXPOSE 80
 

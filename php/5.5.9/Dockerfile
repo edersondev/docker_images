@@ -44,6 +44,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Copia o arquivo de virtualhost
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# Install composer
+WORKDIR /usr/local/bin/
+RUN curl -sS https://getcomposer.org/installer | php
+RUN chmod +x composer.phar
+RUN mv composer.phar composer
+RUN composer self-update
+
 EXPOSE 80
 
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

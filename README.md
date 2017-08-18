@@ -19,12 +19,12 @@ All 3 Dockerfiles are for development, below you can see the default params:
 The port 80 is expose on all Dockerfiles.
 
 # How to use
-## For php 5.3
+###### For php 5.3
 ```
 docker run -d -v [host_path]:/var/www -p [host_port]:80 edersondev/php5.3
 ```
 
-## For php 5.5 and higher
+###### For php 5.5 and higher
 ```
 docker run -d -v [host_path]:/var/www/html -p [host_port]:80 edersondev/php[5.5.9 OR 7]
 ```
