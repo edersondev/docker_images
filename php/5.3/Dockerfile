@@ -17,7 +17,7 @@ php5-pgsql \
 php5-imagick \
 php5-sybase \
 php5-xdebug \
-composer \
+curl \
 phpunit \
 nano \
 && apt-get clean && apt-get autoclean && apt-get autoremove \

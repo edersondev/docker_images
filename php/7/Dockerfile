@@ -26,7 +26,7 @@ php-xml \
 php-zip \
 php-apcu \
 phpunit \
-composer \
+curl \
 mysql-client \
 nano \
 && apt-get clean && apt-get autoclean && apt-get autoremove \
@@ -49,6 +49,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Copia o arquivo de virtualhost
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Install composer
+WORKDIR /usr/local/bin/
+RUN curl -sS https://getcomposer.org/installer | php
+RUN chmod +x composer.phar
+RUN mv composer.phar composer
+RUN composer self-update
 
 # Install and config Laravel
 WORKDIR /root
