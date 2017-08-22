@@ -64,6 +64,8 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 # Install drush
 RUN composer global require drush/drush:dev-master
 
+COPY apache2-foreground /usr/local/bin/
+
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["apache2-foreground"]
