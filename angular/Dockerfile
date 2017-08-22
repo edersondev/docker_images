@@ -16,4 +16,4 @@ RUN npm install -g @angular/cli@latest
 VOLUME /home
 
 RUN apt-get clean && apt-get autoclean && apt-get autoremove \
-rm -rf /var/lib/apt/lists/*
+&& rm -rf /var/lib/apt/lists/*
