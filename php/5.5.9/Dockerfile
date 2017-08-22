@@ -51,6 +51,9 @@ RUN chmod +x composer.phar
 RUN mv composer.phar composer
 RUN composer self-update
 
+COPY apache2-foreground.sh /scripts/
+RUN chmod +x /scripts/*
+
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/scripts/apache2-foreground.sh"]
