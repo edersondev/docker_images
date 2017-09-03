@@ -57,12 +57,9 @@ RUN chmod +x composer.phar
 RUN mv composer.phar composer
 RUN composer self-update
 
-# Install and config Laravel
+# Set path bin
 WORKDIR /root
-RUN composer global require "laravel/installer"
 RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
-# Install drush
-RUN composer global require drush/drush:dev-master
 
 COPY apache2-foreground.sh /scripts/
 RUN chmod +x /scripts/*
