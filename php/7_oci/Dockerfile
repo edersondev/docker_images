@@ -78,7 +78,7 @@ RUN pecl install oci8
 RUN phpenmod oci8
 
 # Remove alien
-RUN apt-get purge alien
+RUN apt-get purge -y alien
 RUN apt autoremove
 
 # Remove files oracle instant client
