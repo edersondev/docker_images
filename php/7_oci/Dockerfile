@@ -74,6 +74,15 @@ RUN alien -i oracle-instantclient12.2-devel-12.2.0.1.0-1.x86_64.rpm
 # Install oci8 extension to access Oracle Database
 RUN pecl install oci8
 
+# Enable mod
+RUN phpenmod oci8
+
+# Remove alien
+RUN apt-get purge alien && apt autoremove
+
+# Remove files oracle instant client
+RUN rm -rf /root/oracle_instantclient
+
 COPY apache2-foreground.sh /scripts/
 RUN chmod +x /scripts/*
 
