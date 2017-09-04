@@ -66,6 +66,7 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
 # Install Oracle Instant Client
 COPY ./oracle_instantclient `WORKDIR`/oracle_instantclient
+WORKDIR /root/oracle_instantclient
 RUN alien -i oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
 RUN alien -i oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
 RUN alien -i oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
