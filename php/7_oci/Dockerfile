@@ -79,7 +79,7 @@ RUN phpenmod oci8
 
 # Remove alien
 RUN apt-get purge -y alien
-RUN apt-get autoremove
+RUN apt-get -y autoremove
 
 # Remove files oracle instant client
 RUN rm -rf /root/oracle_instantclient
