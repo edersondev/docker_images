@@ -51,6 +51,12 @@ RUN chmod +x composer.phar
 RUN mv composer.phar composer
 RUN composer self-update
 
+# Set path bin
+WORKDIR /root
+RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+
+WORKDIR /var/www/html
+
 COPY apache2-foreground.sh /scripts/
 RUN chmod +x /scripts/*
 

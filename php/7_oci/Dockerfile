@@ -67,15 +67,20 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 # Install Oracle Instant Client
 COPY ./oracle_instantclient /root/oracle_instantclient
 WORKDIR /root/oracle_instantclient
-RUN alien -i oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm
-RUN alien -i oracle-instantclient12.2-sqlplus-12.2.0.1.0-1.x86_64.rpm
-RUN alien -i oracle-instantclient12.2-devel-12.2.0.1.0-1.x86_64.rpm
+RUN alien -i oracle-instantclient12.2-basic-*.rpm
+RUN alien -i oracle-instantclient12.2-sqlplus-*.rpm
+RUN alien -i oracle-instantclient12.2-devel-*.rpm
 
 # Install oci8 extension to access Oracle Database
 RUN pecl install oci8
 
+# Create file on modules availabe
+RUN echo -e "; configuration for php oracle module\nextension=oci8.so" > /etc/php/7.0/mods-available/oci8.ini
+
 # Enable mod
 RUN phpenmod oci8
+
+WORKDIR /var/www/html
 
 # Remove alien
 RUN apt-get purge -y alien
