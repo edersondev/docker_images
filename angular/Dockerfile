@@ -10,8 +10,9 @@ RUN apt-get update && apt-get install -y \
 nodejs \
 build-essential
 
-RUN npm install -g typescript@latest
-RUN npm install -g @angular/cli@latest
+RUN npm i -g typescript@latest
+RUN npm i -g @angular/cli@latest
+RUN npm i -g npm-check-updates@latest
 
 VOLUME /home
 
