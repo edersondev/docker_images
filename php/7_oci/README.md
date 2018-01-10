@@ -2,5 +2,5 @@
 
 ###### How to use
 ```
-docker run -d -v [host_path]:/var/www -p [host_port]:80 edersondev/php7_oci
+docker run -d -v [host_path]:/var/www/html -p [host_port]:80 edersondev/php7_oci
 ```
