@@ -57,4 +57,4 @@ WORKDIR /var/www
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/scripts/apache2-foreground.sh"]
