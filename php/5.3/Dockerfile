@@ -55,6 +55,9 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
 WORKDIR /var/www
 
+COPY apache2-foreground.sh /scripts/
+RUN chmod +x /scripts/*
+
 EXPOSE 80
 
 CMD ["/scripts/apache2-foreground.sh"]

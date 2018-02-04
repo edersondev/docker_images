@@ -1,7 +1,5 @@
 # Webserver with Apache/2.4.18 and PHP 7.0.22-0ubuntu0.16.04.1 on Ubuntu
 
-Image with extension oci8, allow you to access Oracle Database 12c, 11g, 10g, 9i and 8i.
-
 The default virtualhost has default params:
 - display_errors **on**
 - error_reporting **22527**
@@ -18,7 +16,7 @@ The port 80 is expose
 # How to use
 ###### Using docker in command line
 ```
-docker run -d -v [host_path]:/var/www/html -p [host_port]:80 edersondev/php7_oci
+docker run -d -v [host_path]:/var/www/html -p [host_port]:80 edersondev/php7
 ```
 
 ###### Using docker-compose
@@ -26,7 +24,7 @@ docker run -d -v [host_path]:/var/www/html -p [host_port]:80 edersondev/php7_oci
 version: '3'
 services:
   webphp:
-    image: edersondev/php7_oci
+    image: edersondev/php7
     ports:
       - "[host_port]:80"
     volumes:
@@ -38,7 +36,7 @@ This image has a environment variable called WEB_DOCUMENT_ROOT if you need to po
 
 ###### Using docker in command line
 ```
-docker run -d -v [host_path]:/var/www/html -p [host_port]:80 -e WEB_DOCUMENT_ROOT=public edersondev/php7_oci
+docker run -d -v [host_path]:/var/www/html -p [host_port]:80 -e WEB_DOCUMENT_ROOT=public edersondev/php7
 ```
 
 ###### Using docker-compose
@@ -46,7 +44,7 @@ docker run -d -v [host_path]:/var/www/html -p [host_port]:80 -e WEB_DOCUMENT_ROO
 version: '3'
 services:
   webphp:
-    image: edersondev/php7_oci
+    image: edersondev/php7
     ports:
       - "[host_port]:80"
     volumes:
