@@ -13,6 +13,7 @@ build-essential
 RUN npm i -g typescript@latest
 RUN npm i -g @angular/cli@latest
 RUN npm i -g npm-check-updates@latest
+RUN npm i -g json-server@latest
 
 VOLUME /home
 
