@@ -18,7 +18,6 @@ php-bz2 \
 php-imagick \
 php-json \
 php-mbstring \
-php-mcrypt \
 php-pclzip \
 php-soap \
 php-xdebug \
