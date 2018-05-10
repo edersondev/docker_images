@@ -1,6 +1,9 @@
 FROM ubuntu
 LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update && apt-get install -y \
 apache2 \
 libapache2-mod-php \
@@ -26,7 +29,6 @@ php-zip \
 php-apcu \
 phpunit \
 curl \
-mysql-client \
 nano \
 && apt-get clean && apt-get autoclean && apt-get autoremove \
 && rm -rf /var/lib/apt/lists/*
@@ -42,9 +44,6 @@ ENV APACHE_LOG_DIR="/var/log/apache2"
 LABEL Description="Webserver php 7"
 
 VOLUME /var/www/html
-
-ENV TZ=America/Sao_Paulo
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Copia o arquivo de virtualhost
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf

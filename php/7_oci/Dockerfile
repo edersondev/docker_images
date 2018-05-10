@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 RUN apt-get update && apt-get install -y \
@@ -29,7 +29,6 @@ php-pear \
 php-dev \
 phpunit \
 curl \
-mysql-client \
 nano \
 alien \
 && apt-get clean && apt-get autoclean && apt-get autoremove \

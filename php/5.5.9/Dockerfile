@@ -18,7 +18,6 @@ php5-imagick \
 php5-mcrypt \
 php5-sybase \
 php5-xdebug \
-mysql-client \
 curl \
 phpunit \
 nano \
