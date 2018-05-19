@@ -1,5 +1,8 @@
-FROM ubuntu:16.04
+FROM ubuntu
 LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
+
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y \
 apache2 \
@@ -18,7 +21,6 @@ php-bz2 \
 php-imagick \
 php-json \
 php-mbstring \
-php-mcrypt \
 php-pclzip \
 php-soap \
 php-xdebug \
@@ -74,7 +76,7 @@ RUN alien -i oracle-instantclient12.2-devel-*.rpm
 RUN pecl install oci8
 
 # Create file on modules availabe
-RUN echo -e "; configuration for php oracle module\nextension=oci8.so" > /etc/php/7.0/mods-available/oci8.ini
+RUN echo -e "; configuration for php oracle module\nextension=oci8.so" > /etc/php/7.2/mods-available/oci8.ini
 
 # Enable mod
 RUN phpenmod oci8
