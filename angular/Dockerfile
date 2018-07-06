@@ -3,9 +3,12 @@ LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
 RUN apt-get update && apt-get install -y \
 curl \
-nano
+nano \
+gnupg
 
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y \
 nodejs \
 build-essential
