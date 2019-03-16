@@ -1,8 +1,8 @@
 # Image with Nodejs, Typescript and Angular-cli on Ubuntu
 
-You can create yours projects using angular-cli and run ng-server on project.
+You can create yours projects using angular-cli and run ng-server.
 
 To use:
 ```
-docker run -it -v [local_path]:/home -p 4200:4200 edersondev/angular-cli /bin/bash
+docker run -it --rm -v "$PWD":"$PWD" -w "$PWD" -u "$(id -u)" edersondev/angular-cli ng
 ```

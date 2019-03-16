@@ -1,6 +1,9 @@
 FROM ubuntu
 LABEL maintainer="Ederson Ferreira <ederson.dev@gmail.com>"
 
+RUN groupadd --gid 1000 node \
+  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
+
 RUN apt-get update && apt-get install -y \
 curl \
 nano \
